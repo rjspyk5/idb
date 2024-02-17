@@ -45,7 +45,6 @@ class FormHandler {
     }
     handleSubmit() {
         this.formData = this.getFormData();
-        console.log(this.formData);
         this.isValid=true;
         this.validationPatternChecker(this.formData) && this.showFormDataInNewWindow(this.formData);
     } 
@@ -78,9 +77,9 @@ class FormHandler {
         for (const data in formData) {
             if (Array.isArray(formData[data])) {
                 // Handle arrays (checkboxes)
-               
+                if (formData[data].length > 0) {
                     shownData.innerHTML += `${data} : ${formData[data].join(', ')}<br>`;
-               
+                }
             } else {
                 // Handle other form elements
                 shownData.innerHTML += `${data} : ${formData[data]}<br>`;
