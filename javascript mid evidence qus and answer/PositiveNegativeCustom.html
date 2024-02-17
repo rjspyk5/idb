@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Negative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 ">
+
+    <div class="container flex-col mt-9  space-y-3 flex items-center justify-center ">
+        <h1 class="text-center text-xl font-bold text-white">Positive Negative Number genarator</h1>
+        <div id="box"
+            class="w-[400px] min-h-[400px] shadow-md p-5 flex flex-col items-center space-y-3 rounded-md bg-gray-600 backdrop-blur-lg">
+            <label for="array" class="font-semibold text-white">Give Number to count positive,negative</label>
+            <input class="border border-black w-[292px] p-1 rounded-sm" type="text" name="array" id="givenArray"
+                placeholder="Give some number">
+            <div id="button"> <button type="button" id="count"
+                    class="btn  rounded-xl  bg-gradient-to-bl from-green-600 to-green-300 hover:bg-gradient-to-tl p-2 text-white w-[80px]">Count</button>
+                <button type="button" id="reset"
+                    class="btn shadow-md rounded-xl  bg-gradient-to-bl from-red-600 to-red-300 hover:bg-gradient-to-tl p-2 text-white w-[80px]">Reset</button>
+            </div>
+            <div class="space-y-3 text-white text-lg" id="append"></div>
+        </div>
+    </div>
+</body>
+<script>
+
+    const submit = document.getElementById("count")
+    const givenvalue = document.getElementById("givenArray")
+    const reset = document.getElementById("reset")
+    let container = document.createElement("div")
+    // Injecting to dom
+    const injecting = (po, z, n, s) => {
+
+
+        const totalPosative = document.createElement("p")
+        totalPosative.innerText = `Total Posative Number is: ${po}`;
+        const totalZero = document.createElement("p")
+        totalZero.innerText = `Total Zero is: ${z}`;
+        const totalSum = document.createElement("p")
+        totalSum.innerText = `Total Sum: ${s}`;
+        const totalNegative = document.createElement("p")
+        totalNegative.innerText = `Total Negative Number is: ${n}`;
+
+        container = document.createElement("div")
+        const totalElement = [totalPosative, totalNegative, totalZero, totalSum]
+        for (const el of totalElement) {
+            container.appendChild(el)
+        }
+        const displayvalue = document.getElementById("append")
+        displayvalue.appendChild(container)
+    }
+    // clearing values
+    const clear = () => {
+        container.remove()
+        posative = 0;
+        negative = 0;
+        zero = 0
+        sum = 0
+    }
+
+
+    // Finding positive,negative function
+    let zero = 0;
+    let posative = 0;
+    let negative = 0;
+    let sum = 0;
+
+
+    const finding = () => {
+
+
+        const arr = givenvalue.value.split(",")
+        clear()
+
+
+        if (!(arr[0] === "")) {
+
+            for (const nums of arr) {
+                let num = parseInt(nums)
+                if (num > 0) {
+                    posative++
+
+                }
+                if (num < 0) {
+                    negative++
+
+                }
+                if (num === 0) {
+                    zero++
+
+                }
+                sum += num
+
+            }
+
+
+
+            injecting(posative, zero, negative, sum)
+
+
+        } else {
+            alert("Give Some number then click on count button sir");
+
+
+        }
+
+
+
+    }
+
+
+
+    // Reset button functionality
+    reset.addEventListener("click", () => { clear(); givenvalue.value = "" })
+    // submit button fuctionality
+    submit.addEventListener("click", () => finding())
+
+
+</script>
+
+</html>

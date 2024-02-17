@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 ">
+
+    <div class="container flex-col mt-9  space-y-3 flex items-center justify-center ">
+
+        <div id="box"
+            class="w-[400px] min-h-[400px] shadow-md p-5 space-y-3 flex flex-col items-center justify-center space-y-3 rounded-md bg-black backdrop-blur-lg">
+            <h1 class="text-white text-3xl font-bold" id="result"></h1>
+            <h2 id="vowel" class="text-white font-bold"></h2>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let inputs = prompt("Input Your English letter")
+    const input = inputs.toLowerCase()
+    const vowel = document.getElementById("vowel")
+    document.getElementById("result").innerText = "Result"
+
+    switch (input) {
+
+        case "a":
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >vowel</span> A`
+
+            break;
+
+        case "e":
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >vowel</span> E`
+            break;
+
+        case "i":
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >vowel</span> I`
+            break;
+
+        case "o":
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >vowel</span> O`
+            break;
+
+        case "u":
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >vowel</span> U`
+            break;
+
+        default:
+            vowel.innerHTML = `You've Input <span class="text-2xl text-red-500" >Consonent</span> `
+
+            break;
+    }
+
+</script>
+</body>
+
+</html>

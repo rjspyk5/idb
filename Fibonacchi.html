@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white">
+
+    <div class="container flex-col mt-9  flex items-center justify-center ">
+
+        <div id="box"
+            class="w-[400px] min-h-[400px] shadow-md p-5 space-y-3 flex flex-col items-center justify-center space-y-3 rounded-md bg-black backdrop-blur-lg">
+            <h1 class="text-white text-3xl font-bold" id="result"></h1>
+            <div id="vowel" class="text-white font-bold"></div>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let vowel = document.getElementById("vowel")
+    let a = parseInt(prompt("Give first Number"));
+    let n1 = 0,
+        n2 = 1,
+        nextTerm;
+    document.getElementById("result").innerText = "Result"
+
+    for (let i = 1; i <= a; i++) {
+        let numberHolder = document.createElement("h6")
+        numberHolder.innerText = n1
+        document.getElementById("vowel").append(numberHolder)
+
+
+        // document.getElementById("vowel").innerText = `${n1}`
+        // document.write(`${n1} </br>`);
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+
+
+</script>
+</body>
+
+</html>

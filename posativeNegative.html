@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Negative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 ">
+
+    <div class="container flex-col mt-9  space-y-3 flex items-center justify-center ">
+
+        <div id="box"
+            class="w-[400px] min-h-[400px] shadow-md p-5 flex space-y-3 flex-col items-center justify-center space-y-3 rounded-md bg-black backdrop-blur-lg">
+            <h1 class="text-white text-3xl font-bold" id="result"></h1>
+            <h2 id="Posative" class="text-white font-bold"></h2>
+            <h2 id="Negative" class="text-white font-bold"></h2>
+            <h2 id="Zero" class="text-white font-bold"></h2>
+            <h2 id="Sum" class="text-white font-bold"></h2>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let inputs = prompt("Give some number by separating coma")
+    let arr = inputs.split(",")
+    let zero = 0;
+    let posative = 0;
+    let negative = 0;
+    let sum = 0;
+
+
+    const finding = (arr) => {
+
+        for (const nums of arr) {
+            let num = parseInt(nums)
+            if (num > 0) {
+                posative++
+            }
+            if (num < 0) {
+                negative++
+            }
+            if (num === 0) {
+                zero++
+            }
+            sum += num
+        }
+        document.getElementById("result").innerText = "Result"
+        document.getElementById("Posative").innerHTML = `Total Positve Number = <span class="text-2xl text-red-500" >${posative}</span> `
+        document.getElementById("Negative").innerHTML = `Total Negative Number = <span class="text-2xl text-red-500" >${negative}</span> `
+        document.getElementById("Zero").innerHTML = `Total Zero = <span class="text-2xl text-red-500" >${zero}</span> `
+        document.getElementById("Sum").innerHTML = `Total Sum = <span class="text-2xl text-red-500" >${sum}</span> `
+
+    }
+    finding(arr)
+
+
+</script>
+</body>
+
+</html
