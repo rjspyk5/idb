@@ -13,13 +13,16 @@
 </head>
 
 <body class="">
-    <div class="container flex items-center justify-center bg-gray-100 mx-auto">
-        <div class="reg-form  p-5 rounded-md shadow-lg mt-11 bg-white mb-11">
-
-            <form action="" class=" " id="registrationForm">
-                <fieldset class="space-y-3">
+    <div class="container flex items-center justify-center bg-slate-900 min-h-screen mx-auto">
+        <!-- form container -->
+        <div
+            class="reg-form  p-8 rounded-md shadow-2xl shadow-gray-700  bg-[#ffffff20] backdrop-blur-xl  text-white min-w-[550px]">
+            <!-- main form -->
+            <form action="" class="w-full " id="registrationForm">
+                <fieldset class="">
                     <legend class="text-center font-semibold text-2xl mb-5">Registration Form</legend>
-                    <div class="name flex space-x-4">
+                    <!-- <div class="name flex space-x-4">
+
                         <input type="text" name="firstname" value="" id="firstname"
                             class="p-2 rounded border border-gray-300" placeholder="Enter Your Firstname">
                         <input type="text" name="lastname" value="" id="lastname"
@@ -29,45 +32,16 @@
                         <input type="text" name="email" value="" id="email"
                             class="p-2 w-full rounded border border-gray-300"
                             placeholder="Enter Your Mobile or Email Adress">
-
                     </div>
                     <div class="password">
                         <input type="password" name="password" id="password" value=""
                             class="p-2 w-full rounded border border-gray-300" placeholder="New Password">
                     </div>
                     <div class="dateOfBirthText space-x-1 flex items-center">
-                        <p class="text-sm text-gray-500">Date of birth</p>
-                        <i class="fa-solid fa-circle-question text-slate-600 text-sm"></i>
+                        <p class="text-sm ">Date of birth</p>
                     </div>
-                    <div class="dateBirth grid grid-cols-3 gap-6">
+                    <div class="dateBirth grid grid-cols-3 gap-6 text-black">
                         <div><select name="BirthDate" id="birthdate" class="border border-gray-300 p-1 w-full rounded">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                                <option value="">4</option>
-                                <option value="">5</option>
-                                <option value="">6</option>
-                                <option value="">7</option>
-                                <option value="">8</option>
-                                <option value="">9</option>
-                                <option value="">10</option>
-                                <option value="">11</option>
-                                <option value="">12</option>
-                                <option value="">13</option>
-                                <option value="">14</option>
-                                <option value="">15</option>
-                                <option value="">16</option>
-                                <option value="">17</option>
-                                <option value="">18</option>
-                                <option value="">19</option>
-                                <option value="">20</option>
-                                <option value="">21</option>
-                                <option value="">22</option>
-                                <option value="">23</option>
-                                <option value="">24</option>
-                                <option value="">25</option>
-                                <option value="">26</option>
-                                <option value="">27</option>
                                 <option value="">28</option>
                                 <option value="">29</option>
                                 <option value="">30</option>
@@ -77,37 +51,12 @@
                                 <option value="">January</option>
                                 <option value="">February</option>
                                 <option value="">March</option>
-                                <option value="">April</option>
-                                <option value="">May</option>
-                                <option value="">June</option>
-                                <option value="">July</option>
-                                <option value="">August</option>
-                                <option value="">September</option>
-                                <option value="">October</option>
-                                <option value="">November</option>
-                                <option value="">December</option>
+
                             </select></div>
                         <div> <select name="BirthYear" id="birthyear" class="border border-gray-300 p-1 w-full rounded">
                                 <option value="">2011</option>
                                 <option value="">2012</option>
-                                <option value="">2013</option>
-                                <option value="">2014</option>
-                                <option value="">2015</option>
-                                <option value="">2016</option>
-                                <option value="">2017</option>
-                                <option value="">2018</option>
-                                <option value="">2019</option>
-                                <option value="">20110</option>
-                                <option value="">20111</option>
-                                <option value="">20112</option>
-                                <option value="">20113</option>
-                                <option value="">20114</option>
-                                <option value="">20115</option>
-                                <option value="">20116</option>
-                                <option value="">20117</option>
-                                <option value="">20118</option>
-                                <option value="">20119</option>
-                                <option value="">20120</option>
+
                             </select></div>
                     </div>
                     <div class="btnset flex gap-3 justify-center">
@@ -117,7 +66,60 @@
 
                         <button type="reset" class="btn rounded p-2 bg-red-500 text-white w-full"
                             id="reset">Reset</button>
+                    </div> -->
+                    <!-- Name -->
+                    <label for="name">Name</label>
+                    <input type="text" name="Name" id="name" class="w-full p-1 text-black my-1 rounded-md"
+                        placeholder="Enter Your Name">
+                    <span class="text-red-500 " id="NameError"></span>
+                    <br>
+                    <!-- Email-->
+                    <label for="email">Email</label>
+                    <input type="text" name="Email" id="email" class="w-full p-1 text-black my-1 rounded-md"
+                        placeholder="Enter Your email">
+                    <span class="text-red-500" id="EmailError"></span>
+                    <br>
+                    <!-- Number-->
+                    <label for="email">Number</label>
+                    <input type="number" name="Number" id="number" class="w-full p-1 text-black my-1 rounded-md"
+                        placeholder="Enter Your number">
+                    <span class="text-red-500" id="NumberError"></span>
+                    <br>
+                    <!-- Adress -->
+                    <label for="adress">Adress</label>
+                    <textarea name="Adress" id="adress" class="w-full text-black p-1 my-1 rounded-md" cols="30" rows="3"
+                        placeholder="Enter your adress"></textarea>
+                    <span class="text-red-500" id="AdressError"></span>
+                    <!-- <input type="text" name="Name" id="name" class="w-full p-1 my-2 rounded-md"
+                        placeholder="Enter your adress"> -->
+                    <br>
+                    <!-- Course -->
+                    <label for="course">Course</label>
+                    <select name="Course" id="course" class="w-full p-1 my-1 rounded-md text-black">
+                        <option value="MBA">MBA</option>
+                        <option value="BBA">BBA</option>
+                    </select>
+                    <span class="text-red-500" id="CourseError"></span>
+                    <!-- radio -->
+                    <label for="sex">Sex :</label>
+                    <div class="inline pl-7 my-2"> <input type="radio" name="Sex" id="male"> Male
+                        <input type="radio" name="Sex" id="female"> Female
                     </div>
+                    <span class="text-red-500" id="SexError"></span>
+                    <br>
+                    <!-- checkbox -->
+                    <label for="subject">Subject:</label>
+                    <div class="inline p-1 my-2">
+                        <input type="checkbox" name="Subject" id="english"> English
+                        <input type="checkbox" name="subject" id="bangla"> Bangla
+                    </div>
+                    <span class="text-red-500" id="SubjectError"></span>
+                    <span class="text-red-500" id="subjectError"></span>
+
+                    <!-- Submit button -->
+                    <button type="button" class="btn rounded p-2 bg-green-500 text-white w-full"
+                        id="submit">Submit</button>
+
                 </fieldset>
             </form>
 

@@ -44,28 +44,83 @@ class FormHandler {
         this.submitButton.addEventListener('click', this.handleSubmit.bind(this));
     }
     handleSubmit() {
-        const formData = this.getFormData();
-        this.showFormDataInNewWindow(formData);
+        this.formData = this.getFormData();
+        console.log(this.formData);
+        this.isValid=true;
+        this.validationPatternChecker(this.formData) && this.showFormDataInNewWindow(this.formData);
     } 
     getFormData() {
         const formData = {};
         const formElements = this.form.elements;
-        for (const element of formElements) {     
+        for (const element of formElements) {
             if (element.name) {
-                formData[element.name] = element.value;
+                if (element.type === 'radio') {
+                    if (element.checked) {
+                        formData[element.name] = element.id;
+                    }
+                } else if (element.type === 'checkbox') {
+                    formData[element.name]=[]
+                    if (element.checked) {
+                        formData[element.name].push(element.id); 
+                    }
+                } else {
+                    formData[element.name] = element.value;
+                }
             }
         }
         return formData;
     }
     showFormDataInNewWindow(formData) {
         const newWindow = window.open("", "", "width=300,height=400");
-        //   create new element for add on new window
-        const shownData=document.createElement("pre") 
+        // create new element for add on new window
+        const shownData = document.createElement("pre");
+    
         for (const data in formData) {
-            shownData.innerHTML=`${shownData.innerHTML+data} : ${formData[data]}</br>`
+            if (Array.isArray(formData[data])) {
+                // Handle arrays (checkboxes)
+               
+                    shownData.innerHTML += `${data} : ${formData[data].join(', ')}<br>`;
+               
+            } else {
+                // Handle other form elements
+                shownData.innerHTML += `${data} : ${formData[data]}<br>`;
+            }
         }
-    newWindow.document.body.appendChild(shownData)
-}
-}
+    
+        newWindow.document.body.appendChild(shownData);
+    }
+    
+
+    validationPatternChecker(formData){
+        for (const key in formData) {
+                const value = formData[key];
+                const errorElement = document.getElementById(`${key}Error`);
+                //emptyCheck
+                !value?(  errorElement.innerText = 'This field is required.'):(errorElement.innerText ='')
+                //requirment check
+                switch (key) {
+                    case 'Email':
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailPattern.test(value)) {
+                            errorElement.textContent = 'Please enter a valid email address.';
+                            this.isValid=false;
+                        }
+                        break;
+                    case 'Number':
+                        const numberPattern = /^\d{11}$/;
+                        if (!numberPattern.test(value)) {
+                            errorElement.textContent = 'Please enter atleast eleven digit number.';
+                            this.isValid=false;
+                        }
+                        break;
+                }
+            
+        }
+        return this.isValid
+   
+    }
+
+    }
+
 const formHandler = new FormHandler('registrationForm');
 
