@@ -1,0 +1,30 @@
+table,th,td{
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+td,th{
+    padding: 10px;
+}
+h2{
+    font-size: 25px !important;
+    font-weight: bold !important;
+}
+
+th{
+    font-size:20px;
+    color: rgb(6, 215, 55);
+}
+.form-container{
+    border: 1px solid white;
+    padding: 10px;
+}
+
+body{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+   padding-top: 40px;
+    color: white;
+}
